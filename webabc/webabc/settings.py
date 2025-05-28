@@ -36,11 +36,13 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost','https://bisoule.my.canva.site/dagotiy
 if os.environ.get('RENDER_EXTERNAL_HOSTNAME'):
     ALLOWED_HOSTS.append(os.environ.get('RENDER_EXTERNAL_HOSTNAME'))
 
-CORS_ALLOWED_ORIGINS = [
-    "https://bisoule.my.canva.site/dagotiylmuc", # Thay thế bằng URL thực tế của frontend của bạn
-    "http://localhost:3000",              # Nếu bạn phát triển frontend cục bộ trên cổng 3000
-    # Thêm bất kỳ origin nào khác mà bạn muốn cho phép
-]
+# CORS_ALLOWED_ORIGINS = [
+#     "https://bisoule.my.canva.site/dagotiylmuc", # Thay thế bằng URL thực tế của frontend của bạn
+#     "http://localhost:3000",              # Nếu bạn phát triển frontend cục bộ trên cổng 3000
+#     # Thêm bất kỳ origin nào khác mà bạn muốn cho phép
+# ]
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Application definition
 
