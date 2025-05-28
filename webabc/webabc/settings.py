@@ -29,13 +29,18 @@ SECRET_KEY = 'django-insecure-a+54m6s!1zi37#))3wm1@5i#sgw%d#kvlh_#czm52y99gtbx^9
 DEBUG = True
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost','https://bisoule.my.canva.site/dagotiylmuc','https://webabc.onrender.com']
 # Thêm tên miền của Render.com sau khi triển khai
 # Ví dụ: my-django-app.onrender.com
 # Hoặc dùng biến môi trường do Render cung cấp:
 if os.environ.get('RENDER_EXTERNAL_HOSTNAME'):
     ALLOWED_HOSTS.append(os.environ.get('RENDER_EXTERNAL_HOSTNAME'))
 
+CORS_ALLOWED_ORIGINS = [
+    "https://bisoule.my.canva.site/dagotiylmuc", # Thay thế bằng URL thực tế của frontend của bạn
+    "http://localhost:3000",              # Nếu bạn phát triển frontend cục bộ trên cổng 3000
+    # Thêm bất kỳ origin nào khác mà bạn muốn cho phép
+]
 
 # Application definition
 
@@ -48,10 +53,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'restaurant',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
